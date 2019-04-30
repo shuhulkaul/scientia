@@ -1,0 +1,310 @@
+ {{#if errors}}
+      {{#each errors}}
+      <section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>{{msg}}</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+      {{/each}}
+{{/if}}
+
+{{#if done}}
+<section class="hero is-medium is-success is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>Your password has been changed!</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+{{/if}} 
+{{#if photo}}
+<section class="hero is-medium is-warning is-bold">
+  
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>Please upload your photo first!</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+{{/if}}
+{{#if large}}
+<section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>The File is too large!</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+{{/if}} 
+{{#if success}}
+<section class="hero is-medium is-success is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>The Image is added successfully!</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+{{/if}} 
+{{#if filetype}}
+<section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>This file format is not supported.</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+{{/if}} 
+<section class="hero is-info is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>Welcome to your dashboard {{user.fname}} {{user.lname}}</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+<section class="hero is-medium is-dark is-bold">
+   <div class="column is-full">
+      <div class="box has-background-white has-text-white">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image">
+                <object data='/uploads/profile_picture/{{user.course}}/{{user.branch}}/{{user.image}}' height="128" width="128" type="image/png">
+                <object data='/uploads/user-logo-1.png' height="128" width="128" type="image/png"></object>
+                </object> 
+              </figure>
+              <br>
+            <form  action='/users/changepassword' method='post'>
+              <input type="hidden" name="email" id="email" value={{user.email}} placeholder="email">
+             <center><button  class="button is-primary" id="new-reg-submit">Change Password</button></center> 
+           </form>
+            </div>
+            <div class="media-content">
+              <div class="content has-text-dark">
+                <p class="has-text-danger is-size-4">
+                  <strong>{{user.fname}} {{user.lname}}</strong> <small>({{user.coerid}})</small> <small></small>
+                  <br>
+                  <ul>
+                    <li><strong>Course :</strong> {{user.course}}</li>
+                    <li><strong>Branch :</strong> {{user.branch}}</li>
+                    <li><strong>Section : </strong>{{user.section}} </li>
+                    <li><strong>Year of Joining : </strong>{{user.yoj}} </li>
+                    <li><strong>Hosteler : </strong>{{user.hostel}} </li>
+                  </ul>
+                </p>
+              </div>
+        </div> 
+             
+            </div>
+        </article>
+    </div>
+    </div>
+    <div class="columns">
+<div class="column is-three-fifths is-offset-1">
+    <div class="box has-background-white has-text-white">     
+    <div class="media-content">
+      <div class="has-text-centered is-size-4 has-text-primary">
+          <strong> Uploads</strong>
+        <hr>
+        <div class="columns">
+          <div class="column">
+        <form enctype="multipart/form-data" action='/users/upload10' method='post'>
+          <input type="hidden" name="branch" id="branch" value='{{user.branch}}' placeholder="branch">
+          <input type="hidden" name="course" id="course" value='{{user.course}}' placeholder="course">
+          <input type="hidden" name="coerid" id="coerid" value='{{user.coerid}}' placeholder="coerid">
+          <input type="hidden" name="yoj" id="yoj" value='{{user.yoj}}' placeholder="yoj">
+          <div class="file is-small is-boxed has-name">
+            <label class="file-label">
+               <input class="file-input" type="file" name="tenthmarksheet" required/>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  <b>10th Marksheet</b>
+                    (Browse Here)
+                </span>
+              </span>
+              <span class="file-name">
+        <button class="button is-fullwidth is-small is-primary" name="submit" value="submit" id="new-reg-submit">Upload Document</button>
+              </span>
+            </label>
+          </div>
+          </form>
+        </div>
+        <div class="column">
+          <form enctype="multipart/form-data" action='/users/uploadphoto' method='post'>
+                <input type="hidden" name="branch" id="branch" value='{{user.branch}}' placeholder="branch">
+                <input type="hidden" name="course" id="course" value='{{user.course}}' placeholder="course">
+                <input type="hidden" name="coerid" id="coerid" value='{{user.coerid}}' placeholder="coerid">
+          <div class="file is-small is-boxed has-name">
+            <label class="file-label">
+              <input class="file-input" type="file" name="myimage" required/>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  <b>Change your Picture</b>
+                    (Browse Picture)
+                </span>
+              </span>
+              <span class="file-name">
+        <button class="button is-fullwidth is-small is-primary" name="submit" value="submit" id="new-reg-submit">Upload Photo</button>
+              </span>
+            </label>
+          </div>
+          </form></div>
+          <div class="column">
+        <form enctype="multipart/form-data" action='/users/upload12' method='post'>
+          <input type="hidden" name="branch" id="branch" value='{{user.branch}}' placeholder="branch">
+          <input type="hidden" name="course" id="course" value='{{user.course}}' placeholder="course">
+          <input type="hidden" name="coerid" id="coerid" value='{{user.coerid}}' placeholder="coerid">
+          <input type="hidden" name="yoj" id="yoj" value='{{user.yoj}}' placeholder="yoj">
+          <div class="file is-small is-boxed has-name">
+            <label class="file-label">
+               <input type="file" class="file-input" name="twelthmarksheet" required/>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  <b>12th Marksheet</b>
+                    (Browse Here)
+                </span>
+              </span>
+              <span class="file-name">
+        <button class="button is-fullwidth is-small is-primary" name="submit" value="submit" id="new-reg-submit">Upload Document</button>
+              </span>
+            </label>
+          </div>
+          </form>
+          </div>
+          <div class="column">
+        <form enctype="multipart/form-data" action='/users/idcard' method='post'>
+          <input type="hidden" name="branch" id="branch" value='{{user.branch}}' placeholder="branch">
+          <input type="hidden" name="course" id="course" value='{{user.course}}' placeholder="course">
+          <input type="hidden" name="coerid" id="coerid" value='{{user.coerid}}' placeholder="coerid">
+          <input type="hidden" name="yoj" id="yoj" value='{{user.yoj}}' placeholder="yoj">
+          <div class="file is-small is-boxed has-name">
+            <label class="file-label">
+                <input type="file" class="file-input" name="idcard" required/>
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  <b>Govt. ID Card</b>
+                    (Browse Here)
+                </span>
+              </span>
+              <span class="file-name">
+        <button class="button is-fullwidth is-small is-primary" name="submit" value="submit" id="new-reg-submit">Upload Document</button>
+            </span>
+            </label>
+          </div>
+          </form>
+          </div>
+         </div>
+         <h3 class="has-text-danger has-text-center "><b>Information</b></h3>
+         <p class="has-text-info is-size-6 has-text-left">
+          <b>10th &amp; 12th Marksheet</b><br>
+           [Max size: 1 MB; PDF ONLY!]
+         </p>
+         <p class="has-text-info is-size-6 has-text-left">
+          <b>Government ID Card &amp; Profile Picture</b><br>
+           [Max size: 200 KB; JPEG IMAGE ONLY!]
+        </p>
+      </div>
+    </div>
+    </div>
+</div>
+<div class="column is-one-quarter">
+    <div class="box has-background-white has-text-white">
+            <div class="media-content">
+             <div class="media-content">
+              <div class="has-text-centered is-size-4 has-text-primary">
+                  <strong>Downloads</strong>
+                <hr>
+               <form action='/users/collegeidcard' method='post'>
+                <input type="hidden" name="phone" id="phone" value='{{user.phone}}' placeholder="phone">
+                <input type="hidden" name="address" id="address" value='{{user.address}}' placeholder="address">
+                <input type="hidden" name="branch" id="branch" value='{{user.branch}}' placeholder="branch">
+                <input type="hidden" name="course" id="course" value='{{user.course}}' placeholder="course">
+                <input type="hidden" name="coerid" id="coerid" value='{{user.coerid}}' placeholder="coerid">
+                <input type="hidden" name="yoj" id="yoj" value='{{user.yoj}}' placeholder="yoj">
+                <input type="hidden" name="fname" id="fname" value='{{user.fname}}' placeholder="fname">
+                <input type="hidden" name="lname" id="lname" value='{{user.lname}}' placeholder="lname">
+                <input type="hidden" name="hostel" id="hostel" value='{{user.hostel}}' placeholder="hostel">
+                <center><button class="button is-primary is-fullwidth" name="submit" value="submit" id="new-reg-submit">College ID Card</button></center>
+              </form> 
+              <br>
+            <form  action='/users/bonafide' method='post'>
+                  <input type="hidden" name="yoj" id="yoj" value='{{user.yoj}}'>
+                  <input type="hidden" name="course" id="course" value='{{user.course}}'>
+                  <input type="hidden" name="coerid" id="coerid" value='{{user.coerid}}' >
+                  <input type="hidden" name="fname" id="fname" value='{{user.fname}}'>
+                  <input type="hidden" name="lname" id="lname" value='{{user.lname}}' >
+                  <input type="hidden" name="dname" id="dname" value='{{user.dname}}' >
+                  <input type="hidden" name="branch" id="branch" value='{{user.branch}}'>
+                <button class="button is-primary is-fullwidth" name="submit" value="submit" id="bonafide-pdf-submit">Bonafide Certificate</button></center> 
+            </form>
+            <br>
+            <form  action='/users/profilepdf' method='post'>
+              <input type="hidden" name="yoj" id="yoj" value='{{user.yoj}}'>
+              <input type="hidden" name="course" id="course" value='{{user.course}}'>
+              <input type="hidden" name="coerid" id="coerid" value='{{user.coerid}}' >
+              <input type="hidden" name="fname" id="fname" value='{{user.fname}}'>
+              <input type="hidden" name="lname" id="lname" value='{{user.lname}}' >
+              <input type="hidden" name="dname" id="dname" value='{{user.dname}}' >
+              <input type="hidden" name="mname" id="mname" value='{{user.mname}}' >
+              <input type="hidden" name="address" id="address" value='{{user.address}}'>
+              <input type="hidden" name="pincode" id="pincode" value='{{user.pincode}}'>
+              <input type="hidden" name="email" id="email" value='{{user.email}}'>
+              <input type="hidden" name="day" id="day" value='{{user.day}}' >
+              <input type="hidden" name="month" id="month" value='{{user.month}}' >
+              <input type="hidden" name="year" id="year" value='{{user.year}}'>
+              <input type="hidden" name="state" id="state" value='{{user.state}}' >
+              <input type="hidden" name="branch" id="branch" value='{{user.branch}}'>
+              <input type="hidden" name="phone" id="phone" value='{{user.phone}}'>
+              <input type="hidden" name="section" id="section" value='{{user.section}}'>
+              <input type="hidden" name="hostel" id="hostel" value='{{user.hostel}}'>
+              <center><button class="button is-primary is-fullwidth" name="submit" value="submit" id="profile-pdf-submit">Profile Data</button></center> 
+             </form>
+              </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+</div>
+<hr>
+</section>
+
+
+
+
+
+
+

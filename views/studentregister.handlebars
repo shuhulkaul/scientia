@@ -1,0 +1,297 @@
+{{#if id}}
+<section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+        <div class="container has-text-white has-text-centered">This COERID is already registered!</div> 
+        </div>
+        </div>
+        </section>
+{{/if}}
+
+{{#if mobile}}
+<section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+        <div class="container has-text-white has-text-centered">This Phone Number is already registered!</div> 
+        </div>
+        </div>
+        </section>
+{{/if}}
+
+{{#if x}}
+<section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+        <div class="container has-text-white has-text-centered">This Email is taken!
+        </div>
+        </section>
+{{/if}} 
+{{#if errors}}
+      {{#each errors}}
+      <section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+        <div class="container has-text-white has-text-centered">{{msg}}</div> 
+        </div>
+        </div>
+        </section>
+      {{/each}}
+{{/if}}
+
+<script>
+  function showDiv(elem){
+  if(elem.value.localeCompare("B.Tech"))
+  {
+    document.getElementById('hidden_div').style.display = "none";
+    document.getElementById('hidden_mtech_div').style.display = "block";
+  }
+  else if(elem.value.localeCompare("M.Tech"))
+  {
+     document.getElementById('hidden_div').style.display = "block";
+    document.getElementById('hidden_mtech_div').style.display = "none";
+  }
+  else
+  {
+     document.getElementById('hidden_mtech_div').style.display = "block";
+  document.getElementById('hidden_div').style.display = "block";
+  }
+}
+</script>
+
+<section class="hero is-medium is-dark is-bold">
+ 
+    <div class="column is-4 is-offset-4">
+      <div class="box has-background-white has-text-white">
+        <div class="has-text-centered is-size-3 has-text-primary">
+          <h1 >Student Register</h1>
+          <hr>
+        </div>
+       <form method="post" id="msform" action="/users/studentregform">
+        <div class="field">
+          <p class="control">
+            <label class="label has-text-danger">First Name</label>
+            <input class="input" style="text-transform: capitalize;" name="fname" id="fname" type="text" placeholder="First Name">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Last Name</label>
+            <input class="input" style="text-transform: capitalize;" name="lname" id="lname" type="text" placeholder="Last Name">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Father's Name</label>
+            <input class="input" style="text-transform: capitalize;" name="dname" id="dname" type="text" placeholder="Father's Name">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Mother's Name</label>
+            <input class="input" style="text-transform: capitalize;" name="mname" id="mname" type="text" placeholder="Mother's Name">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">COER ID</label>
+            <input class="input" name="coerid" id="coerid" type="number" placeholder="COER ID">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Email</label>
+            <input class="input" name="email" id="email" type="text" readonly value={{email}}>
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Address</label>
+            <input class="input" style="text-transform: capitalize;" name="address" id="address" type="text" placeholder="Address">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Day of Birth</label>
+            <input type="text" class="input" min="1"  max="31" placeholder="Day of Birth [1-31]" name="day">
+              </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Month of Birth</label>
+            <input type="text" class="input" min="1"  max="12" placeholder="Month of Birth [1-12]" name="month">
+           </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Year of Birth</label>
+            <input type="text" class="input"  min="1980" max="2006" placeholder="Year of Birth" name="year">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Pincode</label>
+            <input type="number" class="input" placeholder="Pincode" name="pincode">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">State</label>
+            <span class="select">
+                <select name="state">
+                <option value="">Select State</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Orissa">Orissa</option>
+                <option value="Pondicherry">Pondicherry</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="West Bengal">West Bengal</option>
+                </select>
+            </span>
+            </p>
+        </div>
+        <div class="field ">
+          <p class="control">
+            <label class="label has-text-danger">Hosteler?</label>
+              <span class="select">
+                  <select name="hostel">
+                    <option value="">Do you live in the college hostel?</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+           </span>
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Year of Joining</label>
+            <input type="number" class="input"  placeholder="Year of Joining" name="yoj">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Phone Number</label>
+            <input type="number" class="input" placeholder="Phone Number" name="phone">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Course</label>
+          <span class="select">
+              <select name="course" onchange="showDiv(this)">
+              <option value="">Select Course</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="M.Tech">M.Tech</option>
+              </select>
+              </span></p>
+        </div>
+
+        <div class="field" id="hidden_div" style="display: none;">
+          <p class="control">
+            <label class="label has-text-danger">Branch</label>
+          <span class="select">
+          <select name="branch" class="form-control">
+            <option value="">Select Branch</option>
+            <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electronics and Telecommuication">Electronics and Telecommunication</option>
+            <option value="Electrical and Electronics Engineering">Electrical and Electronics Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Plastic and Polymer">Plasic and Polymer</option>
+            <option value="Applied Electronics and Instrumentation">Applied Electronics and Instrumentation</option>
+          </select>
+          </span></p>
+        </div>
+
+        <div class="field  " id="hidden_mtech_div" style="display: none;">
+          <p class="control">
+          <label class="label has-text-danger">Branch</label>
+         <span class="select">
+          <select name="branch2" class="form-control">
+            <option value="" selected>Select Branch</option>
+            <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+          </select>
+          </span></p>
+      </div>
+
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Section</label>
+           <span class="select">
+              <select name="section">
+              <option value="">Select Section</option>
+              <option value="NA">------NA------</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+              <option value="G">G</option>
+              <option value="H">H</option>
+              <option value="I">I</option>
+              <option value="J">J</option>
+              <option value="K">K</option>
+              <option value="L">L</option>
+              <option value="M">M</option>
+              <option value="N">N</option>
+            </select>
+           </span>
+           </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Password</label>
+            <input class="input" name="password" id="password" type="password" placeholder="Password">
+          </p>
+        </div>
+        <div class="field  ">
+          <p class="control">
+            <label class="label has-text-danger">Confirm your Password</label>
+            <input class="input" name="password2" id="password2" type="password" placeholder="Enter your Password again">
+          </p>
+        </div>
+        <br>
+        <div class="field">
+          <p class="control">
+           <center><button type="submit" class="button is-success">
+              Register
+            </button></center> 
+          </p>
+        </div>
+        </form>
+        </div>
+    </div>
+ 
+</section>

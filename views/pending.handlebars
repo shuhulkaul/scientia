@@ -1,0 +1,180 @@
+<style>
+table, th {
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+td {
+   border: 3px solid black;
+  border-collapse: collapse;
+  width:50%
+}
+</style>
+<section class="hero is-large is-dark is-bold">
+    <button class="button is-warning" class="dropbtn"><a href="/users/admindashboard"><b>Go Back to Dashboard</b></a></button>
+   <div class="hero-body">
+    <div class="has-text-centered is-size-3 has-text-primary">
+          <h1><b>Pending Registrations</b></h1>
+    </div>
+   {{#if doclist}}
+   
+    <div id="list" class="column is-4 is-offset-4" style="overflow:auto">
+      <div class="box has-background-white has-text-dark">{{#each doclist}} 
+            <table>
+              <tr>
+                <td>
+                  <b>First Name:</b>
+                </td>
+                <td>
+                  {{this.fname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Last Name:</b>
+                </td>
+                <td>
+                  {{this.lname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Father's Name:</b>
+                </td>
+                <td>
+                  {{this.dname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Mother's Name:</b>
+                </td>
+                <td>
+                  {{this.mname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>COER ID:</b>
+                </td>
+                <td>
+                  {{this.coerid}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Date of Birth:</b>
+                </td>
+                <td>
+                  {{this.day}}/{{this.month}}/{{this.year}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Address:</b>
+                </td>
+                <td>
+                  {{this.address}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Pincode:</b>
+                </td>
+                <td>
+                  {{this.pincode}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>State:</b>
+                </td>
+                <td>
+                  {{this.state}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Hosteler:</b>
+                </td>
+                <td>
+                  {{this.hostel}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Year of Joining:</b>
+                </td>
+                <td>
+                  {{this.yoj}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Course:</b>
+                </td>
+                <td>
+                  {{this.course}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Branch:</b>
+                </td>
+                <td>
+                  {{this.branch}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Section:</b>
+                </td>
+                <td>
+                  {{this.section}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Email Address:</b>
+                </td>
+                <td>
+                  {{this.email}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Phone Number:</b>
+                </td>
+                <td>
+                  {{this.phone}}
+                </td>
+              </tr>
+                <tr>
+              <form  action="/users/approve" method="post">
+                 <input style="display:none;"type="hidden" name="coerid" id="coerid" value={{this.coerid}}>
+               <td><input class="input"  type="text" name="note" id="note" placeholder="Enter a Approval Note" required></td>
+                <td><button type="submit" class="button is-success is-fullwidth">Approve</button></td>
+            </form>
+            </tr>
+            <tr>
+            <form action="/users/disapprove" method="post">
+                <input style="display:none;" type="hidden" name="coerid" id="coerid" value={{this.coerid}}><br>
+                <input type="hidden" name="email" id="email" value={{this.email}} readonly ><br>
+                <input type="hidden" name="name" id="name" value={{this.fname}} readonly><br>
+              <td><input class="input"  type="text" name="note" id="note" placeholder="Enter a Dispproval Note" required></td>
+               <td><button type="submit" class="button is-danger is-fullwidth">Disapprove</button></td>
+              </form>
+              </tr>
+              </table>
+              <hr>{{/each}}
+      </div> 
+    </div>  
+   
+    {{else}}
+     <div id="list" class="column is-4 is-offset-4" style="overflow:auto">
+      <div class="box has-background-danger has-text-centered has-text-white">
+        No pending requests!
+        </div>
+        </div>
+    {{/if}}
+    </div>
+</section>

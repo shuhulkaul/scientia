@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{{title}}}</title>
+    <link rel="icon" type="image/ico" href="/art/fav.ico" />
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link href="css/opensans.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/404.css" />
+    <!-- Bulma Version 0.7.2-->
+    <link rel="stylesheet" href="/css/bulma.min.css" />
+    <link rel="icon" href="/art/favico32.png">
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+<body>
+    <!-- START NAV -->
+<nav class="navbar is-white" role="navigation" aria-label="dropdown navigation">
+  <div class="navbar-brand" id="navMenu">
+    <img class="navbar-item" src="/art/rsz150.png" alt="logo">
+  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    </div>
+   <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+  {{#if user}}
+  <a href="/users/logout" class="navbar-item">Logout</a>
+  {{else}}
+  <a href="/users/home" class="navbar-item">Home</a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Login
+        </a>
+         <div class="navbar-dropdown">
+      <a href="/users/admin/login" class="navbar-item">
+            Admin
+      </a>
+      <a href="/users/student/login" class="navbar-item">
+            Student
+      </a> 
+      </div>
+      </div>
+      <a href="/users/studentregister" class="navbar-item">Student Register</a>
+      {{/if}}
+      </div>
+    </div>
+  </div>
+</nav>
+    <!-- END NAV -->
+     {{#if success_msg}}
+     <section class="hero is-medium is-success is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>{{success_msg}}</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+  {{/if}}
+
+  {{#if error_msg}}
+     <section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>{{error_msg}}</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+  {{/if}}
+
+  {{#if error}}
+<section class="hero is-medium is-warning is-bold">
+      <div class="columns is-mobile">
+          <div class="column">
+             <div class="container has-text-white has-text-centered"> 
+           <strong>{{error}}</strong>   
+           <br>
+             </div>  
+          </div>
+      </div>  
+  </section>
+  {{/if}}
+      {{{body}}}
+
+  <section class="section has-background-white">
+  <div class="content">
+     <p class="has-text-info is-size-3 has-text-weight-bold">Scientia</p>developed by <br> Shuhul Kaul, Vanya Joshi, Saurabh Kumar &amp; Sandeep Kumar Roy.
+  </div>
+  </section>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+</script> 
+
+
+</body>
+
+</html>

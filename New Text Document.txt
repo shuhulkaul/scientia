@@ -1,0 +1,106 @@
+var selectquery="_id: 0";
+console.log("select=", select);
+for(i=0; i<select.length; i++)
+{
+	if(select[i]=='fname')
+	{	selectquery+=", fname : 1";
+	}
+	if(select[i]=='lname')
+	{	selectquery+=", lname : 1";
+	}
+	if(select[i]=='dname')
+	{	selectquery+=", dname : 1";
+	}
+	if(select[i]=='mname')
+	{	selectquery+=", mname : 1";
+	}
+	if(select[i]=='coerid')
+	{	selectquery+=", coerid : 1";
+	}
+	if(select[i]=='address')
+	{	selectquery+=", address : 1";
+	}
+	if(select[i]=='day')
+	{	selectquery+=", day : 1";
+	}
+	if(select[i]=='month')
+	{	selectquery+=", month : 1";
+	}
+	if(select[i]=='year')
+	{	selectquery+=", year : 1";
+	}
+	if(select[i]=='phone')
+	{	selectquery+=", phone : 1";
+	}
+	if(select[i]=='pincode')
+	{	selectquery+=", pincode : 1";
+	}
+	if(select[i]=='state')
+	{	selectquery+=", state : 1";
+	}
+	if(select[i]=='yoj')
+	{	selectquery+=", yoj : 1";
+	}
+	if(select[i]=='hostel')
+	{	selectquery+=", hostel : 1";
+	}
+	if(select[i]=='course')
+	{	selectquery+=", course : 1";
+	}
+	if(select[i]=='branch')
+	{	selectquery+=", branch : 1";
+	}
+	if(select[i]=='section')
+	{	selectquery+=", section : 1";
+	}
+	if(select[i]=='email')
+	{	selectquery+=", email : 1";
+	}
+}
+// var selectquery ="_id :0, fname:"+x1+", lname:"+x2+", dname:"+x3+", mname:"+x4+", coerid:"+x5+", address:"+x6+", day:"+x7+", month:"+x8+", year:"+x9+", phone:"+x10+", pincode:"+x11+", state:"+x12+", yoj:"+x13+", hostel:"+x14+", course:"+x15+", branch:"+x16+", section:"+x17+", email:"+x18;
+
+var wherequery="__v: 0";
+if(fname)
+{
+	wherequery+=', fname: "'+fname+'"';
+}
+if(lname)
+{
+	wherequery+=', lname: "'+lname+'"';
+}
+if(dname)
+{
+	wherequery+=', dname: "'+dname+'"';
+}
+if(mname)
+{
+	wherequery+=', mname: "'+mname+'"';
+}
+if(pincode)
+{
+	wherequery+=', pincode: "'+pincode+'"';
+}
+if(yoj)
+{
+	wherequery+=', yoj: "'+yoj+'"';
+}
+if(state)
+{
+	wherequery+=', state: "'+state+'"';
+}
+if(hostel)
+{
+	wherequery+=', hostel: "'+hostel+'"';
+}
+if(course)
+{
+	wherequery+=', course: "'+course+'"';
+}
+if(branch)
+{
+	wherequery+=', branch: "'+branch+'"';
+}
+if(section)
+{
+	wherequery+=', section: "'+section+'"';
+}

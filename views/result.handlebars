@@ -1,0 +1,208 @@
+<style>
+table, th
+{
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+td {
+   border: 3px solid black;
+  border-collapse: collapse;
+  width:50%;
+  align:center;
+}
+</style>
+<section class="hero is-medium is-dark is-bold">
+  <div class="hero-body">
+    <button class="button is-warning" class="dropbtn"><a href="/users/admindashboard"><b>Go Back to Dashboard</b></a></button>
+    <div class="has-text-centered is-size-3 has-text-primary">
+          <h1><b>Search Results</b></h1>
+    </div>
+   {{#if doclist}}
+   
+    <div id="list" class="column is-4 is-offset-4" style="overflow:auto">
+      <div class="box has-background-white has-text-dark">{{#each doclist}} 
+            <table>
+                <tr>
+                    <td colspan="2">
+                     <object align="center" data='/uploads/profile_picture/{{this.course}}/{{this.branch}}/{{this.image}}' height="128" width="128" type="image/png">
+                            <div ><img src='/uploads/user-logo-1.png' alt="Profile Picture" height="128" width="128"></div>
+                    </object>
+                    </td>
+                </tr>
+              <tr>
+                <td>
+                  <b>First Name:</b>
+                </td>
+                <td>
+                  {{this.fname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Last Name:</b>
+                </td>
+                <td>
+                  {{this.lname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Father's Name:</b>
+                </td>
+                <td>
+                  {{this.dname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Mother's Name:</b>
+                </td>
+                <td>
+                  {{this.mname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>COER ID:</b>
+                </td>
+                <td>
+                  {{this.coerid}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Date of Birth:</b>
+                </td>
+                <td>
+                  {{this.day}}/{{this.month}}/{{this.year}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Address:</b>
+                </td>
+                <td>
+                  {{this.address}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Pincode:</b>
+                </td>
+                <td>
+                  {{this.pincode}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>State:</b>
+                </td>
+                <td>
+                  {{this.state}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Hosteler:</b>
+                </td>
+                <td>
+                  {{this.hostel}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Year of Joining:</b>
+                </td>
+                <td>
+                  {{this.yoj}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Course:</b>
+                </td>
+                <td>
+                  {{this.course}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Branch:</b>
+                </td>
+                <td>
+                  {{this.branch}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Section:</b>
+                </td>
+                <td>
+                  {{this.section}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Email Address:</b>
+                </td>
+                <td>
+                  {{this.email}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Phone Number:</b>
+                </td>
+                <td>
+                  {{this.phone}}
+                </td>
+              </tr>
+            
+          <tr>
+          <td colspan="2"> <form  action='/users/download' method='post'>
+                    <input type="hidden" name="branch" id="branch" value='{{this.branch}}' placeholder="branch">
+                    <input type="hidden" name="course" id="course" value='{{this.course}}' placeholder="course">
+                    <input type="hidden" name="coerid" id="coerid" value='{{this.coerid}}' placeholder="coerid">
+                    <input type="hidden" name="yoj" id="yoj" value='{{this.yoj}}' placeholder="yoj">
+                    <input type="hidden" name="val" value="ten">
+                    <center><button class="button is-primary is-fullwidth" name="submit" value="submit" id="new-reg-submit">10th Certificate</button></center>
+            </form> 
+            </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+            <form  action='/users/download' method='post'>
+                <input type="hidden" name="branch" id="branch" value='{{this.branch}}' placeholder="branch">
+                <input type="hidden" name="course" id="course" value='{{this.course}}' placeholder="course">
+                <input type="hidden" name="coerid" id="coerid" value='{{this.coerid}}' placeholder="coerid">
+                <input type="hidden" name="yoj" id="yoj" value='{{this.yoj}}' placeholder="yoj">
+                <input type="hidden" name="val" value="twelve">
+                <center><button class="button is-primary is-fullwidth"  name="submit" value="submit" id="new-reg-submit">12th Certificate</button></center>
+            </form> 
+            </td>
+              </tr>
+            <tr>
+                <td colspan="2">
+                    <form  action='/users/download' method='post'>
+                        <input type="hidden" name="branch" id="branch" value='{{this.branch}}' placeholder="branch">
+                        <input type="hidden" name="course" id="course" value='{{this.course}}' placeholder="course">
+                        <input type="hidden" name="coerid" id="coerid" value='{{this.coerid}}' placeholder="coerid">
+                        <input type="hidden" name="yoj" id="yoj" value='{{this.yoj}}' placeholder="yoj">
+                        <input type="hidden" name="val" value="id">
+                        <center><button class="button is-primary is-fullwidth" name="submit" value="submit" id="new-reg-submit">ID Card</button></center>
+                    </form> 
+                </td>
+            </tr>
+              </table>
+              <hr>{{/each}}
+      </div> 
+    </div>  
+    {{else}}
+     <div id="list" class="column is-4 is-offset-4" style="overflow:auto">
+      <div class="box has-background-danger has-text-centered has-text-white">
+        No resultsS!
+        </div>
+        </div>
+    {{/if}}
+    </div>
+</section>
