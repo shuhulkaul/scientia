@@ -75,7 +75,7 @@ router.post('/studentlogin',
 								service: 'gmail',
 								auth: {
 								  user: 'scientia.infinity@gmail.com',
-								  pass: 'scIEntI@22'
+								  pass: ''
 								}
 							  });
 							  

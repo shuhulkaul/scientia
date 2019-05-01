@@ -1341,7 +1341,7 @@ router.post('/matchpassword', function(req, res){
 			service: 'gmail',
 			auth: {
 			user: 'scientia.infinity@gmail.com',
-			pass: 'scIEntI@22'
+			pass: ''
 			}
 		});
 		
@@ -1435,7 +1435,7 @@ router.post('/approve', function(req, res){
 						service: 'gmail',
 						auth: {
 						user: 'scientia.infinity@gmail.com',
-						pass: 'scIEntI@22'
+						pass: ''
 						}
 					});
 					
@@ -1492,7 +1492,7 @@ router.post('/disapprove', function(req, res){
 				service: 'gmail',
 				auth: {
 				user: 'scientia.infinity@gmail.com',
-				pass: 'scIEntI@22'
+				pass: ''
 				}
 			});
 			
@@ -1609,7 +1609,7 @@ router.post('/emailauth', function (req, res) {
 									service: 'gmail',
 									auth: {
 									user: 'scientia.infinity@gmail.com',
-									pass: 'scIEntI@22'
+									pass: ''
 									}
 								});
 								
